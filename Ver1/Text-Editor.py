@@ -65,7 +65,7 @@ def update_title():
 # Create the main application window
 app = tk.Tk()
 app.title("Kyrma's Text Editor - No File Opened")
-app.iconbitmap("C:\\Users\\user\\Documents\\Text-Editor\\Ver1\\Text-editor-ico.ico")
+app.iconbitmap("C:\\Users\\user\\Documents\\Text-Editor\\Ver1\\Text-editor-ico.ico") #CHANGE THIS
 
 #create a menu
 menu_bar = tk.Menu(app)
