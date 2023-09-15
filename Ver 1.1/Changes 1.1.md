@@ -1,0 +1,1 @@
+Same as version 1 but changed title to Text Editor
