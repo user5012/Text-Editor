@@ -1,0 +1,1 @@
+Change the app.iconbitmap path to the path the "Text-editor-ico.ico" is installed. It is at line 125!
