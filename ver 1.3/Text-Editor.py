@@ -110,16 +110,17 @@ def exit_app():
     global app, quit
     if is_modified == True:
         exit_request = messagebox.askyesnocancel("Text Editor - Exit", "Do you want to save the changes?")
+        if exit_request is not None:
+            if exit_request:
+                quit = True
+                save_file()
+            else:  
+                app.quit()
+        else:  
+            None
     else:
         app.quit()
-    if exit_request is not None:
-        if exit_request:
-            quit = True
-            save_file()
-        else:  
-            app.quit()
-    else:  
-        app.destroy()
+    
 
 def set_icon(window):
     script_dir = os.path.dirname(sys.argv[0])
