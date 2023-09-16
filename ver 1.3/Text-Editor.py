@@ -122,7 +122,7 @@ def exit_app():
 # Create the main application window
 app = tk.Tk()
 app.title("Text Editor - No File Opened")
-app.iconbitmap("C:\\Users\\user\\Documents\\Text-editor\\Ver 1.2\\Text-editor-ico.ico") #CHANGE THIS
+app.iconbitmap("C:\\Program Files\\Text-Editor\\Text-editor-ico.ico") #CHANGE THIS
 
 #freame fit context
 text_frame = tk.Frame(app)
