@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import filedialog
 import re
 from tkinter import messagebox
+import os
+import sys
 
 file_path = None
 current_font_size = 12
@@ -108,6 +110,8 @@ def exit_app():
     global app, quit
     if is_modified == True:
         exit_request = messagebox.askyesnocancel("Text Editor - Exit", "Do you want to save the changes?")
+    else:
+        app.quit()
     if exit_request is not None:
         if exit_request:
             quit = True
@@ -115,14 +119,23 @@ def exit_app():
         else:  
             app.quit()
     else:  
-        app.quit
+        app.destroy()
+
+def set_icon(window):
+    script_dir = os.path.dirname(sys.argv[0])
+    icon_file = "Text-editor-ico.ico"
+    if os.path.exists(os.path.join(script_dir,icon_file)):
+        app.iconbitmap(default=os.path.join(script_dir,icon_file))
+
+    else:
+        app.iconbitmap(default=None)
 
 
 
 # Create the main application window
 app = tk.Tk()
 app.title("Text Editor - No File Opened")
-app.iconbitmap("C:\\Program Files\\Text-Editor\\Text-editor-ico.ico") #CHANGE THIS
+set_icon(app)
 
 #freame fit context
 text_frame = tk.Frame(app)
