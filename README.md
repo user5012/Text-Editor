@@ -2,6 +2,8 @@
 
 Text Editor is a simple text editor built using Python's Tkinter library. It is designed with educational purposes in mind, making it an excellent tool for teaching beginners how to program or introducing them to the basics of graphical user interface (GUI) development. Text Editor is user-friendly, lightweight, and easily customizable, making it a valuable resource for both educators and learners.
 
+## Make sure to visit my website https://user5012.github.io/Text_Editor/
+
 ## Features
 
 ### 1. **Text Editing**
