@@ -7,3 +7,6 @@ temp/
 # Ignore specific file types
 *.zip
 *.log
+
+# Ignore Screenshots
+/Screenshots/
