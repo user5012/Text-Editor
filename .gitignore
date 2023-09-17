@@ -9,4 +9,4 @@ temp/
 *.log
 
 # Ignore Screenshots
-/Screenshots/
+Screenshots/
