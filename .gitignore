@@ -1,0 +1,9 @@
+# Ignore build artifacts
+build/
+
+# Ignore temporary files
+temp/
+
+# Ignore specific file types
+*.zip
+*.log
