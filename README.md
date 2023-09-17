@@ -37,7 +37,7 @@ Text Editor is a simple text editor built using Python's Tkinter library. It is 
    - Run `python text_editor.py` from the terminal to launch Text Editor.
 
 3. **Installation Setup**
-   - Nevigate to `Buld 1.3` in github menu
+   - Nevigate to `Buld 1.3` in github menu or go to my website[here](https://user5012.github.io/Text_Editor/download.html) and download it
    - Download either `Setup.exe` or `Text Editor.msi`
    - Run the `Setup.exe` or `Text Editor.msi`
    - If this window pops up click on `more info` and then `run anyway`
