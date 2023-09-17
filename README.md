@@ -65,7 +65,7 @@ We would like to express our gratitude to the open-source community and the deve
 If you have any questions, suggestions, or feedback, please don't hesitate to contact us:
 
 - Email: kmamais100@gmail.com
-- Twitter: [@TextEditorApp](https://twitter.com/TextEditorApp)
+- Twitter: [@TextEditorApp](https://twitter.com/TextEdiorApp)
 - GitHub Issues: [Text Editor Issues](https://github.com/user5012/Text-Editor/issues)
 
 Thank you for choosing Text Editor! Happy coding and learning!
