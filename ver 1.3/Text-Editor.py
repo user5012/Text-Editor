@@ -158,9 +158,9 @@ app.grid_columnconfigure(0, weight=1)
 file_menu = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="File", menu=file_menu)
 
-file_menu.add_command(label="Open (Ctrl + O)", command=open_file)
-file_menu.add_command(label="Save (Ctrl + S)", command=save_file)
-file_menu.add_command(label="Save As (Ctrl + Shift + S)", command=save_new_file)
+file_menu.add_command(label="Open (CTRL + O)", command=open_file)
+file_menu.add_command(label="Save (CTRL + S)", command=save_file)
+file_menu.add_command(label="Save As (CTRL + SHIFT + S)", command=save_new_file)
 file_menu.add_command(label="Exit (ALT + F4)", command=exit_app)
 
 #view menu
