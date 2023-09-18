@@ -8,7 +8,7 @@ Text Editor is a simple text editor built using Python's Tkinter library. It is 
 
 ### 1. **Text Editing**
    - Create, open, save, and edit plain text files effortlessly.
-   - Support for basic text editing functions like copy, cut, paste, undo, and redo.
+   - Support for basic text editing functions like copy, cut, paste.
 ### 3. **Customization**
    - Tailor Text Editor to your needs with customizable themes and color schemes.
    - Adjust the editor's appearance and behavior according to your preferences.
