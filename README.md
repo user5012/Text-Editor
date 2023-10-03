@@ -8,7 +8,16 @@ Text Editor is a simple text editor built using Python's Tkinter library. It is 
 
 ### 1. **Text Editing**
    - Create, open, save, and edit plain text files effortlessly.
-   - Support for basic text editing functions like copy, cut
+   - Support for basic text editing functions like copy, cut, paste, undo, and redo.
+   - Change font styles, sizes, and text colors to enhance readability and aesthetics.
+
+### 2. **Syntax Highlighting**
+   - Syntax highlighting for various programming languages, making it suitable for coding exercises.
+   - Currently supports Python, JavaScript, HTML, CSS, and more.
+
+### 3. **Customization**
+   - Tailor Text Editor to your needs with customizable themes and color schemes.
+   - Adjust the editor's appearance and behavior according to your preferences.
 
 ### 4. **Intuitive User Interface**
    - A clean and easy-to-navigate interface, ideal for beginners.
@@ -20,8 +29,8 @@ Text Editor is a simple text editor built using Python's Tkinter library. It is 
 
 ## Getting Started
 
-1. **Requirements**
-   - Make sure you have Python 3 installed on your system.(if you don't you can download it from the official [Python Website](https://www.python.org/downloads/))
+1. **Prerequisites**
+   - Make sure you have Python 3 installed on your system.
    
 2. **Installation Script**
    - Clone this repository or download the ZIP file.
