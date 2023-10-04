@@ -42,7 +42,7 @@ def save_file(event=None):
             is_modified = False
             update_title()
         else:
-            Save_file_msgbox = messagebox.askyesno("Text Editor", "You Don't have a file opened, Do you want to save one?")
+            Save_file_msgbox = messagebox.askyesno("Text Editor", "You Don't have a file opened, Do you want to save it to a new one?")
             if Save_file_msgbox:
                 save_new_file()
 
