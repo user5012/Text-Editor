@@ -66,11 +66,9 @@ def Installer():
 
             print("Downloaded the latest release.")
             os.system("msiexec /f Text.Editor.msi")
-            os.system("Text-Editor.exe")
             os.system("exit")
         else:
             print("Already up to date.")
-            os.system("Text-Editor.exe")
             os.system("exit")
     else:
         print("Failed to fetch release information from GitHub API.")
