@@ -26,7 +26,7 @@ def run_updater():
 
 def main():
     if check_for_updates():
-        print("update available. Running updater")
+        print("Checking for updates...")
         run_updater()
         print("Update finished succesfully")
 

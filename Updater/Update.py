@@ -1,6 +1,11 @@
 import os
 
 
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RESET = "\033[0m"
+
 def search_for_req():
     requirements = 'req.txt'
     if os.path.exists(requirements):
@@ -47,6 +52,8 @@ def Installer():
             stored_version = ''
 
         if latest_version != stored_version:
+            print(RED, "UPDATE AVAILABLE", RESET)
+            print("You will need to run Text-Editor.exe as administrator for update to be installed.")
             # Download the release assets here
             assets = release_data['assets']
 
@@ -64,7 +71,7 @@ def Installer():
             with open(stored_version_file, 'w') as f:
                 f.write(latest_version)
 
-            print("Downloaded the latest release.")
+            print(YELLOW,"Downloaded the latest release.",RESET)
             os.system("msiexec /f TextEditor.msi")
             os.system("exit")
         else:
