@@ -1,10 +1,11 @@
 import os
 
-
 RED = "\033[91m"
 GREEN = "\033[92m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
+
+print(RED,"IF THERE IS ANY PROBLEM WITH UPDATE. RUN Text-Editor.exe AS ADMINISTRATOR",RESET)
 
 def search_for_req():
     requirements = 'req.txt'
@@ -53,7 +54,6 @@ def Installer():
 
         if latest_version != stored_version:
             print(RED, "UPDATE AVAILABLE", RESET)
-            print("You will need to run Text-Editor.exe as administrator for update to be installed.")
             # Download the release assets here
             assets = release_data['assets']
 
