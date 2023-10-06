@@ -65,7 +65,7 @@ def Installer():
                 f.write(latest_version)
 
             print("Downloaded the latest release.")
-            os.system("msiexec /f Text.Editor.msi")
+            os.system("msiexec /f TextEditor.msi")
             os.system("exit")
         else:
             print("Already up to date.")
