@@ -1,34 +1,5 @@
 import os
-
-RED = "\033[91m"
-GREEN = "\033[92m"
-YELLOW = "\033[93m"
-RESET = "\033[0m"
-
-print(RED,"IF THERE IS ANY PROBLEM WITH UPDATE. RUN Text-Editor.exe AS ADMINISTRATOR",RESET)
-
-def search_for_req():
-    requirements = 'req.txt'
-    if os.path.exists(requirements):
-        with open(requirements, 'r') as f:
-            output = f.read()
-
-    else:
-        output = ''
-
-    if output == '':
-        os.system("pip install requests")
-        with open(requirements, 'w') as f:
-            print("Requirements Installed!")
-            f.write("Installed requirements")
-        Installer()
-
-    else:
-        Installer()
-
-    
 def Installer():
-    import requests
     # GitHub repository information
     owner = 'user5012'
     repo = 'Text-Editor'
@@ -72,13 +43,44 @@ def Installer():
                 f.write(latest_version)
 
             print(YELLOW,"Downloaded the latest release.",RESET)
-            os.system("msiexec /f TextEditor.msi")
-            os.system("exit")
+            
         else:
             print("Already up to date.")
             os.system("exit")
     else:
         print("Failed to fetch release information from GitHub API.")
         os.system("pause")
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RESET = "\033[0m"
 
-search_for_req()
+print(RED,"IF THERE IS ANY PROBLEM WITH UPDATE. RUN Text-Editor.exe AS ADMINISTRATOR",RESET)
+try:
+    import requests
+    import tkinter as tk
+    from tkinter import filedialog
+    import re
+    from tkinter import messagebox
+    import os
+    import sys
+    import subprocess
+
+except ModuleNotFoundError as e:
+    print(e)
+    choice = ""
+    print("You don't have requirements install. Do you want to install them? (Y/N)")
+    input(choice)
+    while choice != 'Y' or choice != 'y' or choice != 'N' or choice != 'n':
+        print("answer only with Y/y or N/n")
+        choice = ""
+        input(choice)
+    if choice == 'Y' or choice == 'y':
+        os.system("pip install -r requirements.txt")
+        Installer()
+    else:
+        print("Okay but you cant run the app")
+        os.system("pause")
+        sys.exit()
+
+Installer()
