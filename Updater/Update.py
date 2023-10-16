@@ -45,38 +45,5 @@ def Installer():
     else:
         print("Failed to fetch release information from GitHub API.")
         os.system("pause")
-        """
-RED = "\033[91m"
-GREEN = "\033[92m"
-YELLOW = "\033[93m"
-RESET = "\033[0m"
 
-print(GREEN,"Update.py is still in development if there are any issuses report them to ",RESET,"https://github.com/user5012/Text-Editor/issues")
-
-try:
-    import requests
-    import tkinter as tk
-    from tkinter import filedialog
-    import re
-    from tkinter import messagebox
-    import os
-    import sys
-    import subprocess
-
-except ModuleNotFoundError as e:
-    print(e)
-    choice = ""
-    print("You don't have requirements install. Do you want to install them? (Y/N)")
-    input(choice)
-    while choice != 'Y' or choice != 'y' or choice != 'N' or choice != 'n':
-        print("answer only with Y/y or N/n")
-        choice = ""
-        input(choice)
-    if choice == 'Y' or choice == 'y':
-        os.system("pip install -r requirements.txt")
-        Installer()
-    else:
-        print("Okay but you cant run the app")
-        os.system("pause")
-        sys.exit()
-Installer()
+search_for_req()
