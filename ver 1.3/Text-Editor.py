@@ -25,6 +25,7 @@ def run_updater():
         print(f"updater.py failed to run {e}")
 
 def main():
+    global text, label1
     if check_for_updates():
         print("Checking for updates...")
         run_updater()

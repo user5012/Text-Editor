@@ -15,15 +15,10 @@ def Installer():
         latest_version = release_data['tag_name']
 
         # Check if the latest release version is different from the currently stored version
-        stored_version_file = 'stored_version.txt'
 
-        if os.path.exists(stored_version_file):
-            with open(stored_version_file, 'r') as f:
-                stored_version = f.read().strip()
-        else:
-            stored_version = ''
-
-        if latest_version != stored_version:
+        if latest_version != "v1.3":
+            print(RED,"Update available! ", RESET,"You can download it from here https://github.com/user5012/Text-Editor/releases")
+            """
             print(RED, "UPDATE AVAILABLE", RESET)
             # Download the release assets here
             assets = release_data['assets']
@@ -50,12 +45,14 @@ def Installer():
     else:
         print("Failed to fetch release information from GitHub API.")
         os.system("pause")
+        """
 RED = "\033[91m"
 GREEN = "\033[92m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
 
-print(RED,"IF THERE IS ANY PROBLEM WITH UPDATE. RUN Text-Editor.exe AS ADMINISTRATOR",RESET)
+print(GREEN,"Update.py is still in development if there are any issuses report them to ",RESET,"https://github.com/user5012/Text-Editor/issues")
+
 try:
     import requests
     import tkinter as tk
@@ -82,5 +79,4 @@ except ModuleNotFoundError as e:
         print("Okay but you cant run the app")
         os.system("pause")
         sys.exit()
-
 Installer()
