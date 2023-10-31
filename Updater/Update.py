@@ -73,6 +73,7 @@ except ModuleNotFoundError as e:
         choice = ""
         input(choice)
     if choice == 'Y' or choice == 'y':
+        print(RED,"If something goes wrong try running InstallReq.bat, which is in the path you installed the project",RESET)
         os.system("pip install -r requirements.txt")
         Installer()
     else:
