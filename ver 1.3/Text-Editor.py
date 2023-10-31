@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import re
 from tkinter import messagebox
+import tkinter.scrolledtext as scrolltext
 import os
 import sys
 import subprocess
@@ -166,6 +167,16 @@ def main():
             else:
                 messagebox.showerror("Text Editor", "No things to redo")
 
+        def Copy(event=None):
+            selected_text = text.get("sel.first", "sel.last")
+            app.clipboard_clear()
+            app.clipboard_append(selected_text)
+            app.update
+        
+        def Paste(event=None):
+            clipboard_text = text.clipboard_get()
+            text.insert("insert", clipboard_text)
+
 
         # Create the main application window
         app.title("Text Editor - No File Opened")
@@ -181,7 +192,7 @@ def main():
         app.config(menu=menu_bar)
 
         #text widget
-        text = tk.Text(app, state="normal", font=("Helvetica", current_font_size), undo=True)
+        text = scrolltext.ScrolledText(app, state="normal", font=("Helvetica", current_font_size), undo=True)
         text.grid(row=0, column=0, sticky="nsew")
 
         app.grid_rowconfigure(0, weight=1)
@@ -199,9 +210,11 @@ def main():
 
         #edit menu
         edit_menu = tk.Menu(menu_bar, tearoff=0)
-        edit_menu.add_cascade(label="Edit", menu=edit_menu)
+        menu_bar.add_cascade(label="Edit", menu=edit_menu)
         
-
+        edit_menu.add_command(label="Copy (CTRL - C)", command=Copy)
+        edit_menu.add_command(label="Paste (CTRL - V)", command=Paste)
+        edit_menu.add_separator()
         edit_menu.add_command(label="Undo (CTRL - Z)", command=Undo)
         edit_menu.add_command(label="Redo (CTRL - Y)", command=Redo)
         
