@@ -35,6 +35,7 @@ def main():
         def open_file(event=None):
             global file_path, file_has_been_saved, is_modified
             file_path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
+            lblPath.configure(text=file_path)
             if file_path:
                 with open(file_path, 'r') as file:
                     text.delete('1.0', tk.END)  # Clear the current content
@@ -242,6 +243,8 @@ def main():
         label1 = tk.Label(app, text="words: 0")
         label1.grid(row=1, column=0, sticky="e", padx=10)
 
+        lblPath = tk.Label(app, text="No file opened")
+        lblPath.grid(row=1, column=0, sticky="sw")
 
         #closing button 
         app.protocol("WM_DELETE_WINDOW", exit_app)
