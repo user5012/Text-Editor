@@ -151,6 +151,20 @@ def main():
             else:
                 app.iconbitmap(default=None)
 
+        
+        def Undo(event=None):
+            if is_modified:
+                text.edit_undo()
+                update_title()
+            else:
+                messagebox.showerror("Text Editor", "No things to undo")
+
+        def Redo(event=None):
+            if is_modified:
+                text.edit_redo()
+                update_title()
+            else:
+                messagebox.showerror("Text Editor", "No things to redo")
 
 
         # Create the main application window
@@ -167,7 +181,7 @@ def main():
         app.config(menu=menu_bar)
 
         #text widget
-        text = tk.Text(app, state="normal", font=("Helvetica", current_font_size))
+        text = tk.Text(app, state="normal", font=("Helvetica", current_font_size), undo=True)
         text.grid(row=0, column=0, sticky="nsew")
 
         app.grid_rowconfigure(0, weight=1)
@@ -180,8 +194,17 @@ def main():
         file_menu.add_command(label="Open (CTRL + O)", command=open_file)
         file_menu.add_command(label="Save (CTRL + S)", command=save_file)
         file_menu.add_command(label="Save As (CTRL + SHIFT + S)", command=save_new_file)
+        file_menu.add_separator()
         file_menu.add_command(label="Exit (ALT + F4)", command=exit_app)
 
+        #edit menu
+        edit_menu = tk.Menu(menu_bar, tearoff=0)
+        edit_menu.add_cascade(label="Edit", menu=edit_menu)
+        
+
+        edit_menu.add_command(label="Undo (CTRL - Z)", command=Undo)
+        edit_menu.add_command(label="Redo (CTRL - Y)", command=Redo)
+        
         #view menu
         view_menu = tk.Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="View", menu=view_menu)
