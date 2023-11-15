@@ -16,7 +16,7 @@ def Installer():
 
         # Check if the latest release version is different from the currently stored version
 
-        if latest_version != "v1.3":
+        if latest_version != "v1.4":
             print(RED,"Update available! ", RESET,"You can download it from here https://github.com/user5012/Text-Editor/releases")
             """
             print(RED, "UPDATE AVAILABLE", RESET)
@@ -42,10 +42,11 @@ def Installer():
         else:
             print("Already up to date.")
             os.system("exit")
+        """
     else:
         print("Failed to fetch release information from GitHub API.")
         os.system("pause")
-        """
+        
 RED = "\033[91m"
 GREEN = "\033[92m"
 YELLOW = "\033[93m"

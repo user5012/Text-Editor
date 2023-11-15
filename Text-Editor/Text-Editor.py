@@ -11,6 +11,7 @@ file_path = None
 current_font_size = 12
 file_has_been_saved = False
 is_modified = False
+file_opened = False
 quit = False
 app = tk.Tk()
 
@@ -33,7 +34,7 @@ def main():
         print("Update finished succesfully")
 
         def open_file(event=None):
-            global file_path, file_has_been_saved, is_modified
+            global file_path, file_has_been_saved, is_modified, file_opened
             file_path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
             lblPath.configure(text=file_path)
             if file_path:
@@ -42,6 +43,7 @@ def main():
                     text.insert(tk.END, file.read())  # Load file content into the text widget
                 file_has_been_saved = True
                 is_modified = False
+                file_opened = True
                 update_title()
 
         def save_file(event=None):
@@ -91,6 +93,18 @@ def main():
                     file_has_been_saved = True
                     is_modified = False
                     update_title()
+        """
+        def close_file(event=None):
+            global file_opened, file_path, text, is_modified
+            if file_opened == True:
+                file_path = None
+                text.delete('1.0', tk.END)
+                file_opened = False
+                lblPath.configure(text="No file opened")
+                is_modified = False
+                update_title()
+        """
+
 
         def on_text_change(event=None):
             global is_modified
@@ -116,8 +130,11 @@ def main():
                 messagebox.showinfo("Text Editor", "Cant zoom out anymore!")
 
         def update_title():
-            global file_path, file_has_been_saved, is_modified
-            filename = file_path.split("/")[-1] if file_path else "No File Opened"
+            global file_path, file_has_been_saved, is_modified, file_opened
+            if file_opened == True:
+                filename = file_path.split("/")[-1] if file_path else "No File Opened"
+            else:
+                filename = "No File Opened"
             modified_flag = " *" if is_modified else ""
             app.title(f"Text Editor - {filename}{modified_flag}")
 
@@ -127,6 +144,12 @@ def main():
             words = re.findall(r'\w+', content)
             word_count = len(words)
             label1.configure(text=f"words: {word_count}")
+
+        def char_counter(event=None):
+            global text
+            char_count = len(text.get("1.0", "end-1c"))
+            label_var.set(f"Characters: {char_count}")
+            
 
         def exit_app():
             global app, quit
@@ -206,6 +229,7 @@ def main():
         file_menu.add_command(label="Open (CTRL + O)", command=open_file)
         file_menu.add_command(label="Save (CTRL + S)", command=save_file)
         file_menu.add_command(label="Save As (CTRL + SHIFT + S)", command=save_new_file)
+        #file_menu.add_command(label="Close File (CTRL + K)", command=close_file)
         file_menu.add_separator()
         file_menu.add_command(label="Exit (ALT + F4)", command=exit_app)
 
@@ -232,19 +256,25 @@ def main():
         app.bind_all("<Control-s>", save_file)
         app.bind_all("<Control-o>", open_file)
         app.bind_all("<Control-Shift-s>", save_new_file)
+        #app.bind_all("<Control-k>", close_file)
 
         #bind text change
         text.bind("<<Modified>>", on_text_change)
         text.bind("<KeyRelease>", word_counter)
-
+        text.bind("<Key>", char_counter)
 
         #bottom labels
 
         label1 = tk.Label(app, text="words: 0")
-        label1.grid(row=1, column=0, sticky="e", padx=10)
+        label1.grid(row=1, column=0, sticky="e", padx=90)
 
         lblPath = tk.Label(app, text="No file opened")
         lblPath.grid(row=1, column=0, sticky="sw")
+
+        label_var = tk.StringVar()
+        label_var.set("Characters : 0")
+        lbl_charcounter = tk.Label(app, textvariable=label_var)
+        lbl_charcounter.grid(row=1, column=0, sticky="e", padx=10)
 
         #closing button 
         app.protocol("WM_DELETE_WINDOW", exit_app)
